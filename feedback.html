@@ -1,0 +1,34 @@
+<html>
+	<head>
+		<title>feedback form</title>
+		<link rel="stylesheet" href="feed.css"></link>
+	</head>
+	<body>
+		<div class="container">
+			<form onsubmit="sendEmail(); reset(); return false;">
+				<h3>FeedBack</h3>
+					<input type="text"id="name"placeholder="Your Name"required>
+					<input type="email"id="email"placeholder="Your Email"required>
+					<input type="text"id="Phone"placeholder="Your PhoneNo."required>
+					<textarea id="message" rows="4" placeholder="your valuable feedback"></textarea>
+					<button type="submit">send</button>
+			</form>
+		</div>
+		<script src="https://smtpjs.com/v3/smtp.js"></script>
+		<script>
+			function sendEmail(){
+				Email.send({
+						Host : "smtp.gmail.com",
+						Username : "aditya.bhosale7517@gmail.com",
+						Password : "Aditya$8766",
+						To : 'shivanjalibhosale93@gmail.com',//reciving mail
+						From : document.getElementById("email").value,//mailrecived by user
+						Subject : "New feedback form",
+						Body : "And this is the body"
+				}).then(
+				message => alert(message)
+				);
+			}
+		</script>
+	</body>
+</html>
